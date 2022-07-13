@@ -1,6 +1,8 @@
 import { Cliente } from "./Cliente.js";
 
 export class ContaCorrente {
+    
+    static numeroDeContas = 0;
     agencia;
     _cliente;
 
@@ -22,6 +24,12 @@ export class ContaCorrente {
         return this._saldo;
     }
     
+    constructor(agencia, cliente) {
+        this.agencia = agencia;
+        this._cliente = cliente;
+        ContaCorrente.numeroDeContas++;
+}
+
     sacar(valor) {
 
         if (this._saldo >= valor) {
@@ -56,3 +64,4 @@ export class ContaCorrente {
         console.log(`${valor} transferido com sucesso.`);
         }
     }
+ 
