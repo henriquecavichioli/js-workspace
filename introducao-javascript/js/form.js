@@ -1,7 +1,7 @@
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
 botaoAdicionar.addEventListener("click", function(event){
     event.preventDefault();
-
+    
     var form = document.querySelector("#form-adiciona");
     var paciente = obtemPaciente(form);
     var erros = pacienteEhValido(paciente);
@@ -17,13 +17,14 @@ botaoAdicionar.addEventListener("click", function(event){
     form.reset();
 
     var mensagensErro = document.querySelector("#mensagem-erro");
-    mensagensErro.innerHTML = "";
-
+    //mensagensErro.innerHTML = "";
+    mensagensErro.textContent = "";
 });
 
 function exibeMensagensDeErro(erros){
     var ul = document.querySelector("#mensagem-erro")
-    ul.innerHTML = "";
+    //ul.innerHTML = "";
+    ul.textContent = "";
 
     erros.forEach(function(erro) {
         var li = document.createElement("li");
@@ -87,11 +88,11 @@ function pacienteEhValido(paciente) {
         erros.push("A altura não pode ser em branco");
     }
 
-    if (!validaPeso(paciente.peso)){
+    if (!validaPeso(paciente.peso) && paciente.peso.length != 0){
         erros.push("Peso é inválido");
     }
 
-    if (!validaAltura(paciente.altura)){
+    if (!validaAltura(paciente.altura) && paciente.altura.length != 0){
         erros.push("Altura é inválida");
     }
 
