@@ -14,12 +14,22 @@ botaoAdicionar.addEventListener("click", function(event){
     var pacienteTr = montaTr(paciente);
     var tabela = document.querySelector("#tabela-pacientes");
     tabela.appendChild(pacienteTr);
+
+    adicionaPacientesApi(paciente);
+
     form.reset();
 
     var mensagensErro = document.querySelector("#mensagem-erro");
     //mensagensErro.innerHTML = "";
     mensagensErro.textContent = "";
 });
+
+function adicionaPacientesApi(paciente) {
+
+    var pacienteTr = montaTr(paciente);
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
+}
 
 function exibeMensagensDeErro(erros){
     var ul = document.querySelector("#mensagem-erro")

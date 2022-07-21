@@ -12,7 +12,7 @@ function filtraPorNome() {
             var nomePaciente = tdNomePaciente.textContent;
             var nomeFiltrado = campoFiltro.value;
             var expressao = new RegExp(nomeFiltrado, "i");
-    
+
             if (!expressao.test(nomePaciente)) {
                 pacientes[i].classList.add("invisivel");
             } else {
@@ -23,7 +23,7 @@ function filtraPorNome() {
     
         for (var i = 0; i < pacientes.length; i++ ) {
             pacientes[i].classList.remove("invisivel");
-    
+            
         }
     }
 }
